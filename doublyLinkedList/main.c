@@ -2,10 +2,13 @@
 
 int main()
 {
-	printf("Doubly Linked List v0.0.1\n\n");
+	printf("Doubly Linked List v0.0.2\n\n");
 	int result;
 	int nodeCount;
-	struct node* list = NULL;
+	int position;
+	int data;
+	struct dNode* list = NULL;
+	struct dNode* ptr = NULL;
 
 	for (int i = 0; i < 9; i++)
 	{
@@ -22,6 +25,7 @@ int main()
 		printf("List is empty.\n\n");
 	}
 	/// test code here: ////////////////////////////////////////
+	
 	printf("Result: %d\n\n", result);
 	////////////////////////////////////////////////////////////
 	result = size(list, &nodeCount);

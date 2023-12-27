@@ -64,6 +64,43 @@ int addBack(struct dNode** list, int data)
 	} while (*list != NULL);
 }
 
+int addPos(struct dNode** list, int pos, int data)
+{
+	if (*list == NULL) return 1; // list is empty.
+
+	struct dNode* head = *list;
+	struct dNode* before = NULL; // node before current node in list.
+	struct dNode* curr = NULL; // current node.
+	int tempPos = 0;
+	do {
+		curr = *list;
+		if (tempPos == pos)
+		{
+			struct dNode* newNode = malloc(sizeof(struct dNode));
+			newNode->data = data;
+			before = curr->prev;
+			if (before != NULL) // check if previous node is null.
+			{
+				before->next = newNode;
+				
+			}
+			else // else, current node is head node.
+			{
+				head = newNode; // assign new head node.
+			}
+			newNode->prev = before;
+			newNode->next = curr;
+			curr->prev = newNode;
+			*list = head;
+			return 0;
+		}
+		++tempPos;
+		*list = curr->next;
+	} while (*list != NULL);
+	*list = head; // position not in list, reset list.
+	return -1;
+}
+
 int deleteFront(struct dNode** list)
 {
 	if (*list == NULL) return 1; // list is empty.
@@ -90,6 +127,98 @@ int deleteBack(struct dNode* list)
 		}
 		list = list->next;
 	} while (list != NULL);
+}
+
+int deletePos(struct dNode** list, int pos)
+{
+	if (*list == NULL) return 1; // list is empty.
+
+	struct dNode* head = *list;
+	struct dNode* before = NULL; // node before current node in list.
+	struct dNode* curr = NULL; // current node.
+	struct dNode* after = NULL; // node after current node in list.
+	int tempPos = 0;
+	do {
+		curr = *list;
+		if (tempPos == pos)
+		{
+			before = curr->prev;
+			after = curr->next;
+			if (before != NULL) // check if previous node is null.
+			{
+				before->next = after;
+			}
+			if (after != NULL) // check if next node is null.
+			{
+				after->prev = before;
+			}
+			if (curr == head) // reassign head node if pos == 0.
+			{
+				head = head->next;
+			}
+			free(curr);
+			*list = head;
+			return 0;
+		}
+		++tempPos;
+		*list = curr->next;
+	} while (*list != NULL);
+	*list = head; // position not in list, reset list.
+	return -1;
+}
+
+int deletePtr(struct dNode** list, struct dNode* ptr)
+{
+	if (*list == NULL) return 1; // list is empty.
+
+	struct dNode* head = *list;
+	struct dNode* before = NULL;
+	struct dNode* curr = NULL;
+	struct dNode* after = NULL;
+	do {
+		curr = *list;
+		if (curr == ptr)
+		{
+			before = curr->prev;
+			after = curr->next;
+			if (before != NULL)
+			{
+				before->next = after;
+			}
+			if (after != NULL)
+			{
+				after->prev = before;
+			}
+			if (ptr == head)
+			{
+				head = head->next;
+			}
+			free(curr);
+			*list = head;
+			return 0;
+		}
+		*list = curr->next;
+	} while (*list != NULL);
+	*list = head; // pointer not in list, reset list.
+	return -1;
+}
+
+int returnPosPtr(struct dNode* list, int pos, struct dNode** ptr)
+{
+	if (list == NULL) return 1; // list is empty.
+
+	struct dNode* head = list;
+	int tempPos = 0;
+	do {
+		if (tempPos == pos)
+		{
+			*ptr = list;
+			return 0;
+		}
+		++tempPos;
+		list = list->next;
+	} while (list != NULL);
+	return -1;
 }
 
 int clear(struct dNode** list)

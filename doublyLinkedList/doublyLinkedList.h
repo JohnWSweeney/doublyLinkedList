@@ -17,8 +17,12 @@
 struct dNode* init(int data);
 int addFront(struct dNode** list, int data);
 int addBack(struct dNode** list, int data);
+int addPos(struct dNode** list, int pos, int data);
 int deleteFront(struct dNode** list);
 int deleteBack(struct dNode* list);
+int deletePos(struct dNode** list, int pos);
+int deletePtr(struct dNode** list, struct dNode* ptr);
+int returnPosPtr(struct dNode* list, int pos, struct dNode** ptr);
 int clear(struct dNode** list);
 int isEmpty(struct dNode* list);
 int size(struct dNode* list, int* nodeCount);
