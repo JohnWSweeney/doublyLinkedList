@@ -2,15 +2,36 @@
 
 int main()
 {
-	printf("Doubly Linked List v0.0.0\n\n");
+	printf("Doubly Linked List v0.0.1\n\n");
 	int result;
+	int nodeCount;
 	struct node* list = NULL;
 
+	for (int i = 0; i < 9; i++)
+	{
+		addBack(&list, pow(i, 5));
+	}
+	result = size(list, &nodeCount);
+	if (result == 0)
+	{
+		printf("Node count: %d\n", nodeCount);
+		print(list);
+	}
+	else
+	{
+		printf("List is empty.\n\n");
+	}
 	/// test code here: ////////////////////////////////////////
-	result = addBack(&list, 987);
-	result = addBack(&list, 123);
-	result = addBack(&list, 321);
-	printf("result: %d\n", result);
-	print(list);
+	printf("Result: %d\n\n", result);
 	////////////////////////////////////////////////////////////
+	result = size(list, &nodeCount);
+	if (result == 0)
+	{
+		printf("Node count: %d\n", nodeCount);
+		print(list);
+	}
+	else
+	{
+		printf("List is empty.\n\n");
+	}
 }
