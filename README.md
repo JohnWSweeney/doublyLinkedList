@@ -1,6 +1,9 @@
 # doublyLinkedList
 
 ## ChangeLog
+v0.0.3
+- Added returnPtrPos, returnPosData, updatePosData, and returnDataPos functions.
+
 v0.0.2
 - Added addPos, deletePos, deletePtr, and returnPosPtr functions.
 

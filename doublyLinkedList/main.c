@@ -2,7 +2,7 @@
 
 int main()
 {
-	printf("Doubly Linked List v0.0.2\n\n");
+	printf("Doubly Linked List v0.0.3\n\n");
 	int result;
 	int nodeCount;
 	int position;
@@ -26,7 +26,7 @@ int main()
 	}
 	/// test code here: ////////////////////////////////////////
 	
-	printf("Result: %d\n\n", result);
+	printf("Result: %d\n", result);
 	////////////////////////////////////////////////////////////
 	result = size(list, &nodeCount);
 	if (result == 0)
