@@ -1,6 +1,9 @@
 # doublyLinkedList
 
 ## ChangeLog
+v0.0.4
+- Added returnPtrData, updatePtrData, returnDataPtr, returnMinPos, returnMinPtr, returnMaxPos, and returnMaxPtr functions.
+
 v0.0.3
 - Added returnPtrPos, returnPosData, updatePosData, and returnDataPos functions.
 

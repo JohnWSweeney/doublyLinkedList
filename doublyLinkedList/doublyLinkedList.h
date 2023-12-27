@@ -25,8 +25,17 @@ int deletePtr(struct dNode** list, struct dNode* ptr);
 int returnPosPtr(struct dNode* list, int pos, struct dNode** ptr);
 int returnPtrPos(struct dNode* list, struct dNode* ptr, int* pos);
 int returnPosData(struct dNode* list, int pos, int* data);
+int returnPtrData(struct dNode* list, struct dNode* ptr, int* data);
 int updatePosData(struct dNode* list, int pos, int data);
+int updatePtrData(struct dNode* list, struct dNode* ptr, int data);
 int returnDataPos(struct dNode* list, int data, int* pos);
+int returnDataPtr(struct dNode* list, int data, struct dNode** ptr);
+
+int returnMinPos(struct dNode* list, int* min, int* pos);
+int returnMinPtr(struct dNode* list, int* min, struct dNode** ptr);
+int returnMaxPos(struct dNode* list, int* max, int* pos);
+int returnMaxPtr(struct dNode* list, int* max, struct dNode** ptr);
+
 int clear(struct dNode** list);
 int isEmpty(struct dNode* list);
 int size(struct dNode* list, int* nodeCount);
