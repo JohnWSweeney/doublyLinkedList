@@ -1,6 +1,12 @@
 # doublyLinkedList
 
 ## ChangeLog
+v0.0.6
+- Added deleteAfterPos, deleteBeforePos, and movePosBack functions.
+
+v0.0.5
+- Added returnFrontData, returnBackData, returnTailPos, returnTailPtr, movePosFront, and reverse functions.
+
 v0.0.4
 - Added returnPtrData, updatePtrData, returnDataPtr, returnMinPos, returnMinPtr, returnMaxPos, and returnMaxPtr functions.
 
