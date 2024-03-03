@@ -615,6 +615,107 @@ int movePosBack(struct dNode** list, int pos)
 	return 1;
 }
 
+int movePosUp(struct dNode** list, int pos)
+{
+	if (*list == NULL) return 1; // list is empty.
+	if (pos == 0) return -2; // no action needed.
+
+	struct dNode* head = *list;
+	struct dNode* before = NULL; // node before previous node.
+	struct dNode* prev = head; // previous node in list sweep.
+	struct dNode* curr = NULL; // current node in list sweep.
+	struct dNode* after = NULL; // node after current node.
+	*list = head->next; // pos == 0 invalid, skip ahead.
+	int tempPos = 1;
+	// find pos in list.
+	do {
+		curr = *list;
+		if (pos == tempPos) // found pos.
+		{
+			after = curr->next;
+			if (prev == head)
+			{
+				head = curr;
+			}
+			// swap current/previous nodes.
+			if (before != NULL)
+			{
+				before->next = curr;
+			}
+			curr->prev = before;
+			curr->next = prev;
+			prev->prev = curr;
+			prev->next = after;
+			if (after != NULL)
+			{
+				after->prev = prev;
+			}
+
+			*list = head;
+			return 0;
+		}
+		before = prev;
+		prev = curr;
+		*list = curr->next;
+		++tempPos;
+	} while (*list != NULL);
+	*list = head; // pos not in list, reset list.
+	return 1;
+}
+
+int movePosDown(struct dNode** list, int pos)
+{
+	if (*list == NULL) return 1; // list is empty.
+
+	struct dNode* head = *list;
+	struct dNode* before = NULL; // previous node in list sweep.
+	struct dNode* curr = NULL; // current node in list sweep.
+	struct dNode* next = NULL; // node after current node in list sweep.
+	struct dNode* after = NULL; // node after next node in list sweep.
+	int tempPos = 0;
+	// find pos in list.
+	while (*list != NULL)
+	{
+		curr = *list;
+		if (pos == tempPos) // found pos.
+		{
+			if (curr->next == NULL)
+			{
+				*list = head; // pos is last node, no action needed.
+				return -2;
+			}
+
+			next = curr->next;
+			after = curr->next->next;
+			if (curr == head)
+			{
+				head = curr->next;
+			}
+
+			if (before != NULL)
+			{
+				before->next = next;
+			}
+			next->prev = before;
+			next->next = curr;
+			curr->prev = next;
+			curr->next = after;
+			if (after != NULL)
+			{
+				after->prev = curr;
+			}
+
+			*list = head;
+			return 0;
+		}
+		before = curr;
+		*list = curr->next;
+		++tempPos;
+	}
+	*list = head; // pos not in list, reset list.
+	return 1;
+}
+
 int clear(struct dNode** list)
 {
 	if (*list == NULL) return 1; // list is empty.

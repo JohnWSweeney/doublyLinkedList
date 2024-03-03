@@ -2,7 +2,7 @@
 
 int main()
 {
-	printf("Doubly Linked List v0.0.6\n\n");
+	printf("Doubly Linked List v0.0.7\n\n");
 	int result;
 	int nodeCount;
 	int position;
@@ -25,8 +25,7 @@ int main()
 		printf("List is empty.\n\n");
 	}
 	/// test code here: ////////////////////////////////////////
-	position = 8;
-	result = movePosBack(&list, position);
+	
 	printf("Result: %d\n\n", result);
 	////////////////////////////////////////////////////////////
 	result = size(list, &nodeCount);

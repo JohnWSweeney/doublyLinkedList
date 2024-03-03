@@ -1,6 +1,9 @@
 # doublyLinkedList
 
 ## ChangeLog
+v0.0.7
+- Added movePosUp and movePosDown functions.
+
 v0.0.6
 - Added deleteAfterPos, deleteBeforePos, and movePosBack functions.
 
