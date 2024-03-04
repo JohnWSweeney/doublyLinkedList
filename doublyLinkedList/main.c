@@ -2,7 +2,7 @@
 
 int main()
 {
-	printf("Doubly Linked List v0.0.7\n\n");
+	printf("Doubly Linked List v0.0.8\n\n");
 	int result;
 	int nodeCount;
 	int position;

@@ -563,6 +563,42 @@ int movePosFront(struct dNode** list, int pos)
 	return -1;
 }
 
+int movePtrFront(struct dNode** list, struct dNode* ptr)
+{
+	if (*list == NULL) return 1; // list is empty.
+	if (ptr == NULL) return 2; // ptr is null.
+
+	struct dNode* head = *list;
+	if (ptr == head) return -2; // ptr is head node, no action needed.
+	struct dNode* before = head; // previous node in list sweep.
+	struct dNode* curr = NULL; // current node in list sweep.
+	struct dNode* after = NULL; // current node in list sweep.
+	*list = head->next; // ptr == head invalid, skip ahead.
+	// find ptr in list.
+	while (*list != NULL)
+	{
+		struct dNode* curr = *list;
+		if (curr == ptr) // found ptr.
+		{
+			after = curr->next;
+			before->next = after;
+			if (after != NULL)
+			{
+				after->prev = before;
+			}
+			curr->prev = NULL;
+			curr->next = head;
+			head->prev = curr;
+			*list = curr;
+			return 0;
+		}
+		before = curr;
+		*list = curr->next;
+	}
+	*list = head; // ptr not in list, reset list.
+	return 1;
+}
+
 int movePosBack(struct dNode** list, int pos)
 {
 	if (*list == NULL) return 1; // list is empty.

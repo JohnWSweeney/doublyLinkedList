@@ -1,6 +1,9 @@
 # doublyLinkedList
 
 ## ChangeLog
+v0.0.8
+- Added movePtrFront function.
+
 v0.0.7
 - Added movePosUp and movePosDown functions.
 
