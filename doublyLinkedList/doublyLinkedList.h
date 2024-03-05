@@ -43,6 +43,7 @@ int returnTailPtr(struct dNode* list, struct dNode** ptr);
 int movePosFront(struct dNode** list, int pos);
 int movePtrFront(struct dNode** list, struct dNode* ptr);
 int movePosBack(struct dNode** list, int pos);
+int movePtrBack(struct dNode** list, struct dNode* ptr);
 int movePosUp(struct dNode** list, int pos);
 int movePosDown(struct dNode** list, int pos);
 int clear(struct dNode** list);

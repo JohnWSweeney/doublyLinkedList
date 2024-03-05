@@ -1,6 +1,9 @@
 # doublyLinkedList
 
 ## ChangeLog
+v0.0.9
+- Added movePtrBack function.
+
 v0.0.8
 - Added movePtrFront function.
 
